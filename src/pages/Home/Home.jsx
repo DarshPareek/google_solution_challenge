@@ -108,13 +108,13 @@ const Home = () => {
   return (
     <div className=" w-full bg-background">
       <Nav />
-      <div className="h-full bg-[#e6f5f1] flex justify-between  w-full px-[4rem] pb-[5vw] pt-[10vw]">
-        <div className=" w-1/2 mt-[4vw]">
-        <h1 className="text-[4vw] font-semibold w-full leading-[4.5vw]">
+      <div className="h-full bg-[#e6f5f1] flex justify-between  w-full px-[4rem] pb-[5vw] pt-[10vw] max-sm:pt-20 max-sm:px-4 max-sm:pb-10">
+        <div className=" w-1/2 mt-[4vw] max-sm:w-full">
+        <h1 className="text-[4vw] font-semibold w-full leading-[4.5vw] max-sm:text-3xl ">
           Empowering Neurodiverse Minds with Technology and Care
         </h1>
 
-        <p className="w-[60%] text-lg mt-4">
+        <p className="w-[60%] text-lg mt-4 max-sm:w-[80%]">
           Transforming lives through innovative solutions for autism, ADHD,
           dyslexia, and more.
         </p>
@@ -122,17 +122,17 @@ const Home = () => {
         <Button text={"Join us"} />
         </div>
 
-        <div className=" h-1/2">
+        <div className=" h-1/2 max-sm:hidden">
           <img className=" h-[35vw] object-contain" src="/public/Assets/images/home.png" alt="" />
         </div>
       </div>
 
-      <div className="flex flex-col py-10 items-center mt-[2vw]">
-        <h1 className="text-[3vw] text-center font-semibold w-[50%]">
+      <div className="flex flex-col py-10 items-center mt-[2vw] max-sm:px-4">
+        <h1 className="text-[3vw] text-center font-semibold w-[50%] max-sm:w-full max-sm:text-2xl">
           Join Our Trusted{" "}
           <span className="text-colour1">Neurodiverse Community</span>
         </h1>
-        <div className="mt-[6vw]  flex items-center gap-[4vw]">
+        <div className="mt-[6vw]  flex items-center gap-[4vw] max-sm: flex-col max-sm:mt-14 max-sm:gap-6">
           {cardData.map((item, key) => (
             <div
               key={key}
@@ -154,13 +154,13 @@ const Home = () => {
         </div>
       </div>
 
-      <div className=" flex flex-col py-10 items-center mt-[5vw]">
-        <h1 className="text-[3vw] text-center font-semibold w-[50%]">
+      <div className=" flex flex-col py-10 items-center mt-[5vw] max-sm:px-4">
+        <h1 className="text-[3vw] text-center font-semibold w-[50%] max-sm:w-full max-sm:text-2xl">
           NeuroClarity is for{" "}
           <span className="text-colour1">Transforming Lives</span>
         </h1>
 
-        <div className="review mt-[6vw] overflow-hidden flex items-center gap-[2vw]">
+        <div className="review mt-[6vw] overflow-hidden flex items-center gap-[2vw] max-sm:flex-col max-sm:mt-20 max-sm:gap-6">
           {reviewData.map((item, index) => (
             <div
               key={index}
@@ -189,21 +189,21 @@ const Home = () => {
           ))}
         </div>
 
-        <h2 className="text-[2vw] text-center font-semibold mt-[5vw]">
+        <h2 className="text-[2vw] text-center font-semibold mt-[5vw] max-sm:mt-10 max-sm:text-2xl">
           Connect, Learn, and Grow Today!
         </h2>
         <Button text={"Join Now"} />
       </div>
 
-      <div className="flex flex-col bg-[#e6f5f1] py-20 items-center mt-[5vw]">
-        <h1 className="text-[3vw] text-center font-semibold w-[50%]">
+      <div className="flex flex-col bg-[#e6f5f1] py-20 items-center mt-[5vw] max-sm:px-4">
+        <h1 className="text-[3vw] text-center font-semibold w-[50%] max-sm:text-2xl max-sm:w-full">
           Everything your mind needs to{" "}
           <span className="text-colour1">Unlock your Full Potential</span>
         </h1>
 
-      <div className="grid grid-cols-3  gap-16 mt-20">
+      <div className="grid grid-cols-3  gap-16 mt-20 max-sm:grid-cols-1 max-sm:gap-10">
           {personalizedTools.map((item, index) => (
-            <div key={index} className="px-5  py-5 border overflow-hidden relative h-[25rem] rounded-lg border-gray-300  w-96">
+            <div key={index} className="px-5  py-5 border overflow-hidden relative h-[25rem] rounded-lg border-gray-300  w-96 max-sm:w-full">
                 <div className=" w-full overflow-hidden rounded-md h-[60%]">
                   <img className="h-full w-full object-cover" src={item.image} alt="" />
                 </div>
