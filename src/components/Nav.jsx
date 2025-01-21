@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { RiNotificationFill } from "react-icons/ri";
+import Button from "./Button";
 const Nav = () => {
   return (
     <nav className="px-[4rem] z-10 bg-background fixed w-full py-4  flex items-center justify-between">
@@ -11,7 +12,7 @@ const Nav = () => {
         <Link to="/community">Online Community</Link>
         <Link to="/job">Job Search</Link>
         <Link to="/mentorship">Mentorship</Link>
-        <div className="flex items-center gap-10 ml-[4vw]">
+        {/* <div className="flex items-center gap-10 ml-[4vw]">
           <Link
             to="/notification"
             className="h-8 w-8 rounded-full flex items-center justify-center overflow-hidden"
@@ -28,6 +29,10 @@ const Nav = () => {
               alt=""
             />
           </Link>
+        </div> */}
+        <div className="flex items-center justify-center gap-3 ml-[4vw]">
+          <Link to="/login" className="px-5 text-md rounded-lg  w-fit py-1.5 text-colour1 font-semibold border-2 border-colour1">Login</Link>
+          <Link to="/create" className="px-5 text-md rounded-lg  w-fit py-2 text-white bg-colour1">Create Account</Link>
         </div>
       </div>
     </nav>
