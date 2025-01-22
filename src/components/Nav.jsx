@@ -11,7 +11,7 @@ const Nav = () => {
     <nav className="px-[4rem] z-10 bg-background fixed w-full py-4  flex items-center justify-between max-sm:px-4">
       <div
         className={`fixed h-screen w-full bg-background duration-300 ${
-          menuAction ? "top-0" : "-top-full"
+          menuAction ? "top-0" : "-top-[120%]"
         } left-0 p-4`}
       >
         <div className="flex justify-between">
@@ -21,7 +21,7 @@ const Nav = () => {
           </Link>
           <IoClose onClick={() => setMenuAction(false)} size={32} />
         </div>
-        <div className="flex flex-col gap-3 mt-10 items-end px-2">
+        <div className="flex flex-col gap-3 mt-16 items-end px-2">
           <Link className="text-3xl">About us</Link>
           <Link to="/community" className="text-3xl">
             Online Community

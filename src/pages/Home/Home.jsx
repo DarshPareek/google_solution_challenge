@@ -132,7 +132,7 @@ const Home = () => {
           Join Our Trusted{" "}
           <span className="text-colour1">Neurodiverse Community</span>
         </h1>
-        <div className="mt-[6vw]  flex items-center gap-[4vw] max-sm: flex-col max-sm:mt-14 max-sm:gap-6">
+        <div className="mt-[6vw]  flex items-center gap-[4vw] max-sm:flex-col max-sm:mt-14 max-sm:gap-6">
           {cardData.map((item, key) => (
             <div
               key={key}
