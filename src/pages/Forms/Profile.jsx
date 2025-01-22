@@ -24,7 +24,7 @@ const Profile = () => {
           <div className="h-28 w-28 rounded-full overflow-hidden ">
             <img
               className="h-full w-full object-cover"
-              src="https://lh3.googleusercontent.com/a/ACg8ocKsOVls62ud6g3UzYN22GSg6FmVcbbAjIVevxGkmkKAJ7ed-EE=s96-c"
+              src="https://lh3.googleusercontent.com/a/ACg8ocJrdLzAziKq6AQjhV_qeGroj-8Hi6r6s0RuubYKJ-U8CDTUr2g"
               alt="Profile of Dhruv Raghuvanshi"
             />
           </div>

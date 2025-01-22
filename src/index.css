@@ -16,6 +16,19 @@
 }
 
 
+@font-face {
+  font-family: font;
+  src: url(../public/Assets/Font/font.otf);
+}
+
+
+
+
+span{
+  font-family: font;
+  text-transform: uppercase;
+  font-weight: 100;
+}
 
 
 

@@ -6,6 +6,8 @@ import Mentorship from './pages/Mentorship/Mentorship'
 import Home from './pages/Home/Home'
 import Profile from './pages/Forms/Profile'
 import Notification from './pages/Notification/Notification'
+import LoginForm from './pages/Forms/LoginForm'
+import CreateAccount from './pages/Forms/CreateAccount'
 
 const App = () => {
   return (
@@ -17,6 +19,8 @@ const App = () => {
           <Route path='/mentorship' element={<Mentorship/>} />
           <Route path='/profile' element={<Profile/>} />
           <Route path='/notification' element={<Notification/>} />
+          <Route path='/login' element={<LoginForm/>}/>
+          <Route path='/create' element={<CreateAccount/>}/>
         </Routes>
       </>
   )
