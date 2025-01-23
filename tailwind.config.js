@@ -3,6 +3,9 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
+    '!./src/pages/Community/nodebb/node_modules',
+    '!./**/node_modules',
+    '!./src/pages/Community/nodebb/**/*.{js,ts,jsx,tsx}'
   ],
   theme: {
     extend: {

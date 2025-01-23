@@ -23,7 +23,7 @@ const Nav = () => {
         </div>
         <div className="flex flex-col gap-3 mt-16 items-end px-2">
           <Link className="text-3xl">About us</Link>
-          <Link to="/community" className="text-3xl">
+          <Link to="http://0.0.0.0:4567/" className="text-3xl">
             Online Community
           </Link>
           <Link to="/job" className="text-3xl">
@@ -40,7 +40,7 @@ const Nav = () => {
         NeuroClarity
       </Link>
       <div className="flex items-center gap-12 max-sm:hidden">
-        <Link to="/community">Online Community</Link>
+        <Link to="http://0.0.0.0:4567/">Online Community</Link>
         <Link to="/job">Job Search</Link>
         <Link to="/mentorship">Mentorship</Link>
         {/* <div className="flex items-center gap-10 ml-[4vw]">
