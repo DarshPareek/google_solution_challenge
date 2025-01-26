@@ -110,7 +110,7 @@ const Home = () => {
       <Nav />
       <div className="h-full bg-[#e6f5f1] flex justify-between  w-full px-[4rem] pb-[5vw] pt-[10vw] max-sm:pt-20 max-sm:px-4 max-sm:pb-10">
         <div className=" w-1/2 mt-[4vw] max-sm:w-full">
-        <h1 className="text-[4vw] font-semibold w-full leading-[4.5vw] max-sm:text-3xl ">
+        <h1 className="text-6xl font-semibold w-full leading-[4.2rem] max-sm:text-3xl ">
           Empowering Neurodiverse Minds with Technology and Care
         </h1>
 
