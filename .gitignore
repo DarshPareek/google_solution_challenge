@@ -1,2 +1,3 @@
 src/pages/Community/nodebb
 .gitignore.kate-swp
+node_modules
