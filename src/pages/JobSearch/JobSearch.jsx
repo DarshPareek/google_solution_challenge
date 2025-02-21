@@ -1,129 +1,198 @@
-import React, { useState } from 'react';
-
-const diseases = [
-  'ADHD',
-  'Autism',
-  'Dyslexia',
-  'Depression',
-  'Anxiety',
-  'Other',
-];
-
-const jobList = [
-  {
-    id: 1,
-    title: 'Clinical Psychologist',
-    company: 'NeuroHealth Inc.',
-    location: 'Remote',
-    diseases: ['ADHD', 'Depression'],
-  },
-  {
-    id: 2,
-    title: 'Therapy Coordinator',
-    company: 'Wellness Center',
-    location: 'New York, NY',
-    diseases: ['Autism', 'Anxiety'],
-  },
-  {
-    id: 3,
-    title: 'Behavioral Specialist',
-    company: 'NeuroClarity Partners',
-    location: 'Los Angeles, CA',
-    diseases: ['Dyslexia', 'Anxiety', 'Depression'],
-  },
-  {
-    id: 4,
-    title: 'Speech Therapist',
-    company: 'Care Speech',
-    location: 'Remote',
-    diseases: ['Autism', 'Dyslexia'],
-  },
-];
+import React, { useState } from 'react'
+import Nav from '../../components/Nav'
+import { LuBriefcase, LuSquareArrowOutUpRight } from 'react-icons/lu';
+import { FaRegBuilding } from 'react-icons/fa';
+import { GrLocation } from 'react-icons/gr';
+import { FaRegClock } from 'react-icons/fa6';
+import Footer from "../../components/Footer"
 
 const JobSearch = () => {
-  const [selectedDiseases, setSelectedDiseases] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [locationFilter, setLocationFilter] = useState('');
+  const [typeFilter, setTypeFilter] = useState('');
 
-  const handleDiseaseChange = (disease) => {
-    if (selectedDiseases.includes(disease)) {
-      setSelectedDiseases(
-        selectedDiseases.filter((selectedDisease) => selectedDisease !== disease)
-      );
-    } else {
-      setSelectedDiseases([...selectedDiseases, disease]);
+  const companies = [
+    { name: 'TechCorp', location: 'New York', jobs: 15 },
+    { name: 'InnovateX', location: 'London', jobs: 9 },
+    { name: 'NeuroTech', location: 'Toronto', jobs: 12 },
+  ];
+
+  const statsData = [
+    {
+      icon: <LuBriefcase size={30} />,
+      heading: "Total Jobs",
+      number: 2345
+    },
+    {
+      icon: <FaRegBuilding size={28} />,
+      heading: "Companies",
+      number: 847
+    },
+    {
+      icon: <GrLocation size={30} />,
+      heading: "Locations",
+      number: 77
     }
-  };
+  ];
 
-  const filteredJobs = jobList.filter((job) =>
-    selectedDiseases.length === 0
-      ? true
-      : selectedDiseases.some((disease) => job.diseases.includes(disease))
-  );
+  const jobCards = [
+    {
+      title: "Software Developer",
+      company: "Inclusive Tech",
+      location: {
+        city: "New York",
+        type: "Remote",
+        salary: "$85,000 - $95,000"
+      },
+      posted: "2 days ago",
+      tags: ["Flexible Hours", "Remote Work", "Mentorship", "Neurodiverse Team"]
+    },
+    {
+      title: "Data Analyst",
+      company: "Diverse Insights",
+      location: {
+        city: "London",
+        type: "Hybrid",
+        salary: "£45,000 - £55,000"
+      },
+      posted: "5 days ago",
+      tags: ["Flexible Schedule", "Training Provided", "Inclusive Culture", "Career Growth"]
+    },
+    {
+      title: "UX Designer",
+      company: "Accessible Solutions",
+      location: {
+        city: "Toronto",
+        type: "On-site",
+        salary: "$75,000 - $85,000"
+      },
+      posted: "1 week ago",
+      tags: ["Accessibility Focus", "Team Collaboration", "Creative Freedom", "Inclusive Design"]
+    }
+  ];
+
+  const filteredJobs = jobCards.filter(job => {
+    const matchesSearch = job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         job.company.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         job.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
+    
+    const matchesLocation = locationFilter ? job.location.city === locationFilter : true;
+    const matchesType = typeFilter ? job.location.type === typeFilter : true;
+
+    return matchesSearch && matchesLocation && matchesType;
+  });
 
   return (
-    <div className="p-8 bg-gray-100 min-h-screen">
-      <h2 className="text-3xl font-bold text-center text-gray-800 mb-4">
-        Find the Best NeuroClarity Jobs
-      </h2>
-      <p className="text-center text-gray-600 mb-6 max-w-2xl mx-auto">
-        NeuroClarity offers objective, independent research and verified user reviews.
-        When our advisors match you to a software provider, we may earn a referral fee.
-        Learn more.
-      </p>
-
-      <div className="bg-white shadow-md rounded-lg p-6 mb-8">
-        <h3 className="text-2xl font-semibold text-gray-700 mb-4">Filter Jobs</h3>
-        <div>
-          <h4 className="font-medium text-gray-600 mb-3">Diseases</h4>
-          <div className="flex flex-wrap gap-4">
-            {diseases.map((disease) => (
-              <label
-                key={disease}
-                className="flex items-center gap-2 text-gray-700"
-              >
-                <input
-                  type="checkbox"
-                  className="w-4 h-4"
-                  checked={selectedDiseases.includes(disease)}
-                  onChange={() => handleDiseaseChange(disease)}
-                />
-                <span>{disease}</span>
-              </label>
-            ))}
-          </div>
+    <div className='bg-background w-full'>
+      <Nav/>
+      <div className="flex items-center md:px-14 px-4 py-20 pt-36 justify-start">
+        <div className=" flex flex-col items-start gap-4 md:justify-center">
+          <h1 className="text-5xl font-semibold">
+          Find Your Next <span>Career Opportunity</span>
+          </h1>
+          <p className="text-xl md:text-center text-gray-600 ">
+          Discover inclusive workplaces that celebrate neurodiversity
+          </p>
         </div>
       </div>
+      <div className="flex max-sm:flex-col w-full px-4 gap-2 md:px-14 mt-6">
+        <input
+          type="text"
+          placeholder="Search jobs by title or keywords..."
+          className="px-5 py-2 w-full border border-gray-300 rounded-md outline-none"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        <select
+          className="px-5 py-2 border border-gray-300 rounded-md outline-none"
+          value={locationFilter}
+          onChange={(e) => setLocationFilter(e.target.value)}
+        >
+          <option value="">All Locations</option>
+          <option>New York</option>
+          <option>London</option>
+          <option>Toronto</option>
+          <option>Sydney</option>
+        </select>
+        <select
+          className="px-5 py-2 border border-gray-300 rounded-md outline-none"
+          value={typeFilter}
+          onChange={(e) => setTypeFilter(e.target.value)}
+        >
+          <option value="">All Types</option>
+          <option>Remote</option>
+          <option>Hybrid</option>
+          <option>On-site</option>
+        </select>
+        <button 
+          className="px-5 py-2 bg-colour1 text-white rounded-md hover:bg-blue-600 transition-colors whitespace-nowrap"
+          onClick={() => {
+            setSearchTerm('');
+            setLocationFilter('');
+            setTypeFilter('');
+          }}
+        >
+          Clear Filters
+        </button>
+      </div>
 
-      <div className="bg-white shadow-md rounded-lg p-6">
-        <h3 className="text-2xl font-semibold text-gray-700 mb-6">Job Results</h3>
-        {filteredJobs.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredJobs.map((job) => (
-              <div
-                key={job.id}
-                className="border rounded-lg p-4 bg-gray-50 hover:shadow-lg transition-shadow"
-              >
-                <h4 className="text-lg font-bold text-gray-800">{job.title}</h4>
-                <p className="text-gray-600">{job.company}</p>
-                <p className="text-gray-500 text-sm mb-4">{job.location}</p>
-                <div className="flex flex-wrap gap-2">
-                  {job.diseases.map((disease) => (
-                    <span
-                      key={disease}
-                      className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
-                    >
-                      {disease}
-                    </span>
-                  ))}
+      <div className="grid md:grid-cols-3 gap-4 px-4 md:px-14 py-16">
+        {statsData.map((item, index) => (
+          <div key={index} className="border p-4 rounded-lg gap-4 flex items-center border-gray-300">
+          {item.icon}
+          <div className="">
+            <h6 className='text-zinc-600'>{item.heading}</h6>
+            <h5 className='text-3xl font-semibold leading-6'>{item.number}</h5>
+          </div>
+        </div>
+        ))}
+      </div>
+        
+      <div className="space-y-6 px-4 md:px-14 mb-12">
+        <h1 className='text-3xl font-semibold'>Latest Jobs</h1>
+        {
+          filteredJobs.map((item, index) => (
+            <div key={index} className="border rounded-lg px-6 py-3 border-gray-300">
+            <div className="border-b py-3 flex gap-4 border-gray-300">
+              <div className="h-12 w-12 rounded-full bg-gray-300">
+              </div>
+              <div className='space-y-0.5' >
+                <h3 className='text-xl font-semibold'>{item.title}</h3>
+                <p>{item.company}</p>
+                <div className="flex flex-wrap text-zinc-600 items-center gap-2">
+                  <p className='flex text-sm items-center gap-1'>
+                    <GrLocation/>
+                    {item.location.type}
+                  </p>
+                  <p className='flex text-sm items-center gap-1'>
+                  <FaRegClock />
+                    {item.location.city}
+                  </p>
+                  <p className='flex text-sm items-center gap-1'>
+                  <LuBriefcase />
+                    {item.location.salary}
+                  </p>
                 </div>
               </div>
-            ))}
+            </div>
+            <div className="py-3 space-y-3">
+              <div className="flex items-center flex-wrap gap-2 ">
+                {item.tags.map((item, index) => (
+                  <div key={index} className="bg-black/10 text-sm font-semibold px-2 rounded-full">{item}</div>
+                ))}               
+              </div>
+              <div className=" flex justify-between items-center ">
+                <p className='text-md text-zinc-600'>{item.posted}</p>
+                <LuSquareArrowOutUpRight size={20} />
+              </div>
+            </div>
           </div>
-        ) : (
-          <p className="text-gray-600 text-center">No jobs found matching your criteria.</p>
-        )}
+          ))
+        }
       </div>
+      <Footer/>
     </div>
-  );
-};
+  )
+}
 
-export default JobSearch;
+export default JobSearch

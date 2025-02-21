@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { RiNotificationFill } from "react-icons/ri";
 import { RiMenu3Fill } from "react-icons/ri";
-import Button from "./Button";
 import { IoClose } from "react-icons/io5";
 const Nav = () => {
   const [menuAction, setMenuAction] = useState(false);
@@ -22,7 +20,6 @@ const Nav = () => {
           <IoClose onClick={() => setMenuAction(false)} size={32} />
         </div>
         <div className="flex flex-col gap-3 mt-16 items-end px-2">
-          <Link className="text-3xl">About us</Link>
           <Link to="http://0.0.0.0:4567/" className="text-3xl">
             Online Community
           </Link>
@@ -32,14 +29,13 @@ const Nav = () => {
           <Link to="/mentorship" className="text-3xl">
             Mentorship
           </Link>
-          <Link className="text-3xl">Contach us</Link>
         </div>
       </div>
       <Link to="/" className="text-xl flex items-end gap-3 font-semibold">
         <img className="h-8" src="/public/Assets/logo.png" alt="" />
         NeuroClarity
       </Link>
-      <div className="flex items-center gap-12 max-sm:hidden">
+      <div className="flex items-center gap-12 max-lg:hidden">
         <Link to="http://0.0.0.0:4567/">Online Community</Link>
         <Link to="/job">Job Search</Link>
         <Link to="/mentorship">Mentorship</Link>
@@ -77,7 +73,7 @@ const Nav = () => {
         </div>
       </div>
 
-      <div onClick={() => setMenuAction(true)} className="menu md:hidden">
+      <div onClick={() => setMenuAction(true)} className="menu lg:hidden">
         <RiMenu3Fill size={22} />
       </div>
     </nav>
