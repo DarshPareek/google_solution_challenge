@@ -16,8 +16,8 @@ const CreateAccount = () => {
 
   return (
     <div className='h-screen w-full flex bg-background'>
-        <div className="w-1/2 bg-colour1 flex items-center justify-center h-full">
-        <form onSubmit={handleSubmit} className="w-4/6 bg-white px-10 py-8 rounded-lg border border-gray-300">
+        <div className="lg:w-1/2 w-full bg-colour1 flex items-center max-md:px-6 max-lg:px-32 justify-center h-full">
+        <form onSubmit={handleSubmit} className="lg:w-4/6 bg-white p-4 md:px-10 md:py-8 rounded-lg border border-gray-300">
         <h2 className="text-2xl font-bold mb-4">Create Account</h2>
         <input
           type="text"
@@ -78,7 +78,7 @@ const CreateAccount = () => {
         <p className="mt-4 text-center">Already have an account? <Link to="/login" className="text-blue-500">Login</Link></p>
       </form>
         </div>
-        <div className="w-1/2 p-16 bg-colour1 h-full">
+        <div className="w-1/2 p-16 max-lg:hidden bg-colour1 h-full">
           <img className='h-full w-full object-contain ' src="/public/Assets/images/create.png" alt="" />
         </div>
     </div>

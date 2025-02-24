@@ -12,14 +12,14 @@ const LoginForm = () => {
   };
 
   return (
-    <div className='h-screen w-full flex bg-background'>
+    <div className='h-screen w-full flex justify-center bg-background'>
     
-      <div className="w-1/2 p-16 bg-background h-full">
+      <div className="w-1/2 max-md:hidden p-16 bg-background h-full">
         <img className='h-full w-full object-contain ' src="/public/Assets/images/login.png" alt="" />
       </div>
 
-      <div className="w-1/2 bg-background flex items-center justify-center h-full">
-        <form onSubmit={handleSubmit} className="w-4/6 bg-white px-10 py-8 rounded-lg border border-gray-300">
+      <div className="md:w-1/2 bg-background flex items-center justify-center h-full">
+        <form onSubmit={handleSubmit} className="md:w-4/6 bg-white p-4 md:px-10 md:py-8 rounded-lg border border-gray-300">
           <h2 className="text-2xl font-bold mb-6">Login</h2>
           <div>
             <label>Username:</label>
